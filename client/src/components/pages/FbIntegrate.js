@@ -8,19 +8,17 @@ const FBIntegrate = () => {
 
   const responseFacebook = async (response) => {
     try {
-      const name = response.name;
+      const name = response.name
       const backendResponse = await axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/exchangeToken`,
         {
           accessToken: response.accessToken,
         }
       );
-
       const longTermToken = backendResponse.data.access_token;
 
-      localStorage.setItem("access_token", longTermToken);
-      localStorage.setItem("name", name);
-
+       localStorage.setItem("access_token", longTermToken);
+       localStorage.setItem("name", name);
       setLongTermAccessToken(longTermToken);
       navigate("/manage");
       console.log("access_token:", longTermToken);
@@ -41,7 +39,7 @@ const FBIntegrate = () => {
           <div className="bg-[#004f97]  w-fit h-14 text-white text-center text-lg rounded-md">
             <div className="w-full opacity-0">
               <FacebookLogin
-                appId="1054114552357067"
+                appId={process.env.REACT_APP_FACEBOOK_APP_ID}
                 autoLoad={true}
                 fields="name,email,picture"
                 callback={responseFacebook}
