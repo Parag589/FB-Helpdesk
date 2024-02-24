@@ -1,17 +1,18 @@
   <!-- Dependency Status -->
 <h1>Facebook Helpdesk</h1>
-<hr /></br/><br/>
+<br /><br />
   
 
 <p align="center">
-##Landing Page
+
+## Landing Page
   <a>
     <img src="screenshots/1.png"
          alt="screenshot">
   </a>
   </br/><br/>
 
-##Login Page
+## Login Page
 
   <a>
     <img src="screenshots/2.png"
@@ -20,7 +21,7 @@
 </br/><br/>
 
 
-##Signup Page
+## Signup Page
 
 <a>
     <img src="screenshots/3.png"
@@ -29,7 +30,7 @@
 </br/><br/>
 
 
-##Facebook Page
+## Facebook Page
 
 <a>
     <img src="screenshots/4.png"
@@ -38,7 +39,7 @@
 </br/><br/>
 
 
-##Integration Page
+## Integration Page
 
 <a>
     <img src="screenshots/5.png"
@@ -46,7 +47,7 @@
   </a>
 </br/><br/>
 
-##Dashboard Page
+## Dashboard Page
 
 <a>
     <img src="screenshots/6.png"
