@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { BsInboxFill, BsGraphUpArrow } from "react-icons/bs";
 import { IoMdContacts } from "react-icons/io";
@@ -11,6 +11,8 @@ const SideBar = ({ picUrl }) => {
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
   const history = useNavigate();
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -41,8 +43,6 @@ const SideBar = ({ picUrl }) => {
   const toggleSubMenu = () => {
     setIsSubMenuOpen(!isSubMenuOpen);
   };
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -102,7 +102,7 @@ const SideBar = ({ picUrl }) => {
           src={
             !!picUrl
               ? picUrl
-              : "https://images.unsplash.com/photo-1693693928634-658db91ca093?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
+              : "https://cdn-icons-png.freepik.com/512/219/219988.png"
           }
           alt="user-profile-pic"
           onClick={toggleSubMenu}

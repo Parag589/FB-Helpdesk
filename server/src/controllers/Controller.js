@@ -84,6 +84,7 @@ const anotherFunction = async () => {
   await pageAccessToken;
   console.log("Page Access Token by other function:", pageAccessToken);
 };
+
 let sendMessageToFrontend = async (req, res) => {
   try {
     const { recipientId, messageText, senderId } = req.body;
@@ -96,7 +97,6 @@ let sendMessageToFrontend = async (req, res) => {
       role: "admin",
     });
     await sentMessage.save();
-
     const url = `https://graph.facebook.com/v13.0/me/messages?access_token=${pageAccessToken}`;
 
     await axios.post(url, {
@@ -173,8 +173,10 @@ let fetchMessages = async (req, res) => {
     const response = await axios.get(apiUrl);
     const messages = response.data.messages.data;
     const messages2 = JSON.stringify(response.data.from);
+    const id = JSON.stringify(response.data.messages.data.from);
 
     console.log("****************" + messages2);
+    console.log("-------------" + id);
 
     res.status(200).json({ messages });
   } catch (error) {

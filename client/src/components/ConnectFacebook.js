@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import FacebookLogin from "react-facebook-login";
 
 const ConnectFacebook = () => {
   const navigate = useNavigate();
@@ -8,7 +10,6 @@ const ConnectFacebook = () => {
 
   useEffect(() => {
     const storedName = localStorage.getItem("name");
-
     if (storedName) {
       setName(storedName);
     }

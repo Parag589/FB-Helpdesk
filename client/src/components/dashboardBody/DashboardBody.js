@@ -12,6 +12,13 @@ const Dashboard = () => {
   const [selectedSenderName, setSelectedSenderName] = useState(null);
   const [user1, setuser1] = useState(null);
   const [user2, setuser2] = useState(null);
+  const [userId, setUserId] = useState(null);
+  const [uniqueId1, setUniqueId1] = useState(null);
+  const [uniqueId2, setUniqueId2] = useState(null);
+  useEffect(() => {
+    console.log("First Unique ID:", uniqueId1);
+    console.log("Second Unique ID:", uniqueId2);
+  }, [uniqueId1, uniqueId2]);
 
   const hi = process.env.REACT_APP_BACKEND_URL;
   useEffect(() => {
@@ -67,6 +74,24 @@ const Dashboard = () => {
     fetchConversationDetails();
   }, []);
 
+  useEffect(() => {
+    const fetchUserId = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/UserId`
+        );
+        setUserId(response.data.id);
+        console.log("new id:" + userId);
+      } catch (error) {
+        console.error("Error fetching user ID:", error.message);
+      }
+    };
+
+    fetchUserId();
+  }, []);
+
+  const handleReload = async () => {};
+
   const handleChatClick = async (conversationId) => {
     setSelectedChat(conversationId);
 
@@ -85,6 +110,14 @@ const Dashboard = () => {
         setSelectedSenderName(senderName);
       }
 
+      const uniqueIdsSet = new Set(messages.map((message) => message.from.id));
+      const uniqueIdsArray = Array.from(uniqueIdsSet);
+
+      if (uniqueIdsArray.length > 0) {
+        setUniqueId1(uniqueIdsArray[0]);
+        setUniqueId2(uniqueIdsArray[1]);
+      }
+
       console.log("Messages for conversationId:", conversationId);
       console.log(messages);
     } catch (error) {
@@ -92,6 +125,11 @@ const Dashboard = () => {
     }
   };
 
+  useEffect(() => {
+    console.log("First Unique ID:", uniqueId1);
+    console.log("Second Unique ID:", uniqueId2);
+  }, [uniqueId1, uniqueId2]);
+  console.log("user1" + user1 + "user2" + user2);
   return (
     <section className="flex w-full h-full text-gray-800">
       <div className="flex flex-col w-1/4">
@@ -109,6 +147,9 @@ const Dashboard = () => {
           selectedSenderName={selectedSenderName}
           user1={user1}
           user2={user2}
+          uniqueId1={uniqueId1}
+          uniqueId2={uniqueId2}
+          handleChatClick={handleChatClick}
         />
       </div>
 

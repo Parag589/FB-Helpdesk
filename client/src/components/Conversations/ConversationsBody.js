@@ -4,8 +4,9 @@ import axios from "axios";
 const ConversationBody = ({
   chatmessages,
   selectedSenderName,
-  user1,
   user2,
+  uniqueId2,
+  handleChatClick,
 }) => {
   const [sendmessage, setsendMessage] = useState("");
 
@@ -15,10 +16,17 @@ const ConversationBody = ({
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
+      console.log("enter pressed");
       e.preventDefault();
       handleSubmit();
+      setsendMessage("");
+      handleChatClick();
     }
   };
+
+  const scrollToBottom = () => {};
+
+  const submitData = async () => {};
 
   console.log("inside body" + chatmessages.from);
 
@@ -30,17 +38,14 @@ const ConversationBody = ({
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/send-message`,
-        {
-          senderId: user2,
-          recipientId: user1,
-          message: {
-            text: sendmessage,
-          },
-          messageText: sendmessage,
-        }
-      );
+      const response = await axios.post("http://localhost:8000/send-message", {
+        senderId: user2,
+        recipientId: uniqueId2,
+        message: {
+          text: sendmessage,
+        },
+        messageText: sendmessage,
+      });
 
       console.log("Message sent successfully:", response.data);
     } catch (error) {

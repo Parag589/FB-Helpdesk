@@ -15,7 +15,7 @@ const UserDetails = ({ selectedSenderName }) => {
       <div className="bg-white flex flex-col items-center gap-4 py-10 px-28">
         <img
           src={
-            "https://images.unsplash.com/photo-1693693928634-658db91ca093?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt-JmDfLz7ErRiTZ9vIme55A9JGQqdx8qJ_xQ_lB2UIqGAFELpsKQQ8xuTSrlqrly-tSQ&usqp=CAU"
           }
           alt="user-details-pic"
           className="w-20 h-20 rounded-full object-cover"

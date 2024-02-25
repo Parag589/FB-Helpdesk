@@ -1,9 +1,8 @@
 import express from "express";
-import chatbotController from "../controllers/chatbotController";
+import chatbotController from "../controllers/Controller";
 
 let router = express.Router();
 
-// const app = express()
 let initWebRoutes = (app) => {
 
     router.get("/", chatbotController.test)
@@ -12,9 +11,9 @@ let initWebRoutes = (app) => {
     router.post("/webhook", chatbotController.postWebHook)
     router.post('/send-message', chatbotController.sendMessageToFrontend);
     router.post('/exchangeToken', chatbotController.exchangeToken);
-
     router.get('/fetchConversationDetails', chatbotController.fetchConversationDetails);
     router.get('/fetchMessages/:conversationId', chatbotController.fetchMessages);
+
     
     return app.use("/", router);
 }

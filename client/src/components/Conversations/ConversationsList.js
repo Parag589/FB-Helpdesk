@@ -5,7 +5,7 @@ const ConversationList = (props) => {
   return (
     <React.Fragment>
       <div className="flex items-center justify-between border-b-2 border-b-gray-300 py-5 px-8">
-        <div className="flex gap-6 items-center">
+        <div className="flex gap-6 items-center cursor-pointer">
           <AiOutlineAlignLeft className="w-6 h-6" />
           <h1 className="text-3xl font-bold ">Conversations</h1>
         </div>
@@ -33,8 +33,7 @@ const ConversationList = (props) => {
             </div>
             <strong className="text-sm opacity-65 m-5 mt-[-5px]">
               {conversation.lastMessage}
-            </strong>{" "}
-            <br />
+            </strong>
             <hr />
           </li>
         ))}
