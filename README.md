@@ -1,6 +1,6 @@
   <!-- Dependency Status -->
 <h1>Facebook Helpdesk</h1>
-<br /><br />
+<br />
 
 ## Demo Video
 <a href="https://www.loom.com/share/76f952fc2716451cab46d9c8f94bb9c1">
@@ -34,7 +34,7 @@
 </br/><br/>
 
 
-## Facebook Page
+## Connect Facebook Page
 
 <a>
     <img src="screenshots/4.png"
@@ -43,7 +43,7 @@
 </br/><br/>
 
 
-## Integration Page
+## Manage Integrated Facebook Page
 
 <a>
     <img src="screenshots/5.png"
